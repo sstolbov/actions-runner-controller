@@ -1,3 +1,3 @@
-FROM postgres:12-alpine
+FROM nginxdemos/hello
 
-RUN ls -la
+RUN echo "Container build done"
