@@ -1,0 +1,20 @@
+# This is a basic workflow that is manually triggered
+
+name: Build image
+
+# Controls when the action will run. Workflow runs when manually triggered using the UI
+# or API.
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  call-docker-build:
+    uses: sstolbov/github-actions-workflows/.github/workflows/docker-bp.yml@main
+    secrets:
+      RUNNER_GITHUB: ${{ secrets.RUNNER_GITHUB }}
+      DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+      DOCKERHUB_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
